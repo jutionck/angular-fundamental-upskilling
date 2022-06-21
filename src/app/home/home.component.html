@@ -2,6 +2,26 @@
   <img class="d-block mx-auto mb-4" src="../../assets/images/bootstrap-logo.svg" alt="" width="72" height="57">
   <h1 class="display-5 fw-bold">Selamat Datang</h1>
   <div class="col-lg-6 mx-auto">
-    <p class="lead mb-4">Di Website Enigma App</p>
+
+    <p class="lead mb-4">Di Website <strong> {{ title }} </strong></p>
+    <hr>
+    <h5>Penerapan String Interpolation</h5>
+    <p>Expression: {{ 1 + 1 }} </p>
+    <p>Function: {{ getTittle() }}</p>
+    <p>Array: {{ cars }}</p>
+
+    <p>Object: {{ customer.name }}</p>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      [disabled]="!isDisabled"
+      (click)="onClickButton()"
+    >
+      Get Started
+    </button>
+    <p class="mt-2">Status Button: {{ isDisabled }}</p>
+    <p class="mt-2">{{ showMessage }}</p>
+    <p></p>
   </div>
 </div>

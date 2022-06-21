@@ -12,4 +12,13 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Passing Data
+  name:string = '';
+
+  onKeyPress(event: Event) : void {
+    const result: string = (<HTMLInputElement>event.target).value
+    this.name = result;
+    console.log(result);
+  }
+
 }
