@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   // lazy load
   {
-    path: 'todos',
+    path: 'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   }
 ];
