@@ -25,7 +25,6 @@ export class TodoFormComponent implements OnInit {
 
   onSubmit(): void {
     this.saveTodo.emit(this.todoForm.value)
-    // console.log("Save Todo: ", this.todoForm.value);
     this.todoForm.reset();
   }
 
