@@ -42,6 +42,12 @@ export class TodosComponent implements OnInit {
     }
   }
 
+  onToggleTodo(): void{
+    sessionStorage.setItem('todos', JSON.stringify(this.todos))
+  }
+
+  onEditTodo(todo: Todo): void {}
+
   onSaveTodo(todo: Todo): void {
     todo.id = this.todos.length + 1;
     this.todos.push(todo)

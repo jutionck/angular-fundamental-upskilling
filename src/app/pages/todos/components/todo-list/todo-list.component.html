@@ -9,6 +9,7 @@
         id="{{todo.id}}_checkbox"
         [value]="todo.id"
         [checked]="todo.isDone"
+        (click)="onCheckTodo(todo)"
         >
       <label for="{{todo.id}}_checkbox" class="form-check-label">
         {{ todo.name }}

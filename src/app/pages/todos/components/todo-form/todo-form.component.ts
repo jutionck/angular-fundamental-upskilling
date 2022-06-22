@@ -18,8 +18,6 @@ export class TodoFormComponent implements OnInit {
     isDone: new FormControl(false)
   })
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 

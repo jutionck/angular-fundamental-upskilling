@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../../models/todo.model';
 
 @Component({
@@ -9,10 +9,18 @@ import { Todo } from '../../models/todo.model';
 export class TodoListComponent implements OnInit {
 
   @Input() todos: Todo[] = [];
-
-  constructor() { }
+  @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
+  @Output() editTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
 
   ngOnInit(): void {
+  }
+
+  onCheckTodo(todo: Todo): void {
+    todo.isDone = !todo.isDone;
+    this.toggleTodo.emit();
+  }
+  onSelectTodo(todo: Todo): void {
+    this.editTodo.emit(todo)
   }
 
 }
