@@ -14,7 +14,18 @@
       <label for="{{todo.id}}_checkbox" class="form-check-label">
         {{ todo.name }}
       </label>
-        <button class="btn btn-link btn-sm float-end">Edit</button>
+        <button
+          class="btn btn-link btn-sm float-end"
+          (click)="onDeleteTodo(todo)"
+        >
+          Hapus
+        </button>
+        <button
+          class="btn btn-link btn-sm float-end"
+          (click)="onSelectTodo(todo)"
+        >
+          Edit
+        </button>
       </div>
     </li>
   </ul>

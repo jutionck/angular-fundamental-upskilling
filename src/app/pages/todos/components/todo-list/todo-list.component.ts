@@ -24,4 +24,8 @@ export class TodoListComponent implements OnInit {
     this.editTodo.emit(todo)
   }
 
+  onDeleteTodo(todo: Todo): void {
+    this.deleteTodo.emit(todo)
+  }
+
 }
