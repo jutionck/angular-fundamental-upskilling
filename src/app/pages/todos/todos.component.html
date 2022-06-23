@@ -3,14 +3,13 @@
     <app-todo-list
       [todos]="todos"
       (toggleTodo)="onToggleTodo()"
+      (editTodo)="onEditTodo($event)"
+      (deleteTodo)="onDeleteTodo($event)"
     ></app-todo-list>
   </div>
 
   <div class="col">
-    <app-todo-form
-      [todo]="todo"
-      (saveTodo)="onSaveTodo($event)"
-    ></app-todo-form>
+    <app-todo-form [(todo)]="todo"></app-todo-form>
   </div>
 </div>
 

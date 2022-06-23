@@ -11,6 +11,7 @@ export class TodoListComponent implements OnInit {
   @Input() todos: Todo[] = [];
   @Output() toggleTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
   @Output() editTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>()
 
   ngOnInit(): void {
   }

@@ -27,5 +27,16 @@
         </button>
       </div>
     </form>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="isAdded; else noTodoAdded">
+      <strong>Hore</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <ng-template #noTodoAdded>
+      <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        {{ message | uppercase }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </ng-template>
   </div>
 </div>
