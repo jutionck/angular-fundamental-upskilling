@@ -8,8 +8,8 @@ export class TodoService {
   private todos: Todo[] = [];
   private storage: Storage = sessionStorage;
 
-  getAll(): Todo[] | undefined {
-    const todoValue: string | null = this.storage.getItem('todos');
+  getAll(): Todo[] {
+    const todoValue: string = this.storage.getItem('todos');
     try {
       const todos: Todo[] = todoValue ? JSON.parse(todoValue) : []
       this.todos = todos;
@@ -72,4 +72,14 @@ export class TodoService {
   private updateSessionStorage(): void {
     sessionStorage.setItem('todos', JSON.stringify(this.todos))
   }
+
+  // HTTP
+  /*
+  * url: https://ebb2-118-99-107-91.ap.ngrok.io/
+  * 1. Register -> https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/auth/register
+  * 2. Login -> https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/auth/login
+  * 3. Payload: {"email": "", "password": "" }
+  *
+  * 4. UrlTodo -> https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/todos
+  * */
 }

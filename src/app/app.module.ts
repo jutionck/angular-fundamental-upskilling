@@ -24,7 +24,7 @@ import { ChildComponent } from './demo/child/child.component';
     BrowserModule,
     SharedModule,
     PagesModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

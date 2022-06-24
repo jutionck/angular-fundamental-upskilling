@@ -29,6 +29,7 @@ export class TodoFormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
       map((params: Params) => {
+        console.log("params: ", params);
         return params.id ? +params.id : null
       })
     ).subscribe(id => {

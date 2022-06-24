@@ -1,0 +1,16 @@
+### REGISTER
+POST https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/auth/register
+Content-Type: application/json
+
+{ "email": "jutionck@gmail.com", "password": "password" }
+
+### LOGIN
+POST https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/auth/login
+Content-Type: application/json
+
+{ "email": "jutionck@gmail.com", "password": "password" }
+
+### TODOS
+GET https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/todos
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdXRpb25ja0BnbWFpbC5jb20iLCJpYXQiOjE2NTYwNzU1MTMsImV4cCI6MTY1NjA3NzMxM30.pTN_UNAAoK9nBds6ELW0F5V4e_cGutTPnmyRSgpBV5E_zfC3zF83V4Nhr0dJxbvzBVLgujH0x73MIOXckLQ68g
