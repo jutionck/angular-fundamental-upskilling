@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  isLoggedIn(): boolean {
+    return (sessionStorage.getItem('token') !== null)
   }
-
 }
