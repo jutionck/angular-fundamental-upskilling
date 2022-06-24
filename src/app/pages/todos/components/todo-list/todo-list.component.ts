@@ -12,7 +12,7 @@ export class TodoListComponent implements OnInit {
     private readonly todoService: TodoService
   ) {}
 
-  todos: Todo[] | undefined = [];
+  todos: Todo[] = [];
 
   ngOnInit(): void {
     this.getAllTodo()
@@ -25,7 +25,7 @@ export class TodoListComponent implements OnInit {
     this.todoService.checkedTodo(todo)
   }
   onSelectTodo(todo: Todo): void {
-    console.log(this.todoService.getTodoById(todo.id));
+    // console.log(this.todoService.getTodoById(todo.id));
   }
   onDeleteTodo(todo: Todo): void {
     console.log('delete todo: ', todo);

@@ -23,6 +23,7 @@
         <button
           class="btn btn-link btn-sm float-end"
           (click)="onSelectTodo(todo)"
+          routerLink="/pages/todos/{{todo.id}}"
         >
           Edit
         </button>

@@ -39,17 +39,16 @@ export class TodoService {
   }
 
   deleteTodo(id: number): void {
-    const todoValue: string = this.storage.getItem('todos') as string;
-    try {
-      let todos: Todo[] = todoValue ? JSON.parse(todoValue) : [];
-      todos = todos.filter((todo) => todo.id !== id);
-      this.storage.setItem('todos', JSON.stringify(todos))
-    } catch (err){
-      console.log(err);
-    }
+   try {
+     const todoId: number = this.todos.findIndex(item => item.id === id);
+     this.todos.splice(todoId, 1);
+     this.updateSessionStorage()
+   } catch (error) {
+     console.error(error);
+   }
   }
 
-  getTodoById(id: number): Todo | undefined {
+  getTodoById(id: number): Todo {
     try {
       return this.todos.find(item => item.id === id);
     } catch (err) {
