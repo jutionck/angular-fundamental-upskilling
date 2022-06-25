@@ -1,5 +1,5 @@
 ### REGISTER
-POST https://5af6-118-99-107-91.ap.ngrok.io/api/v1/auth/register
+POST https://5af6-118-99-107-91.ap.ngrok.io/api/v1/auth/regidster
 Content-Type: application/json
 
 { "email": "jutionck@gmail.com", "password": "password" }

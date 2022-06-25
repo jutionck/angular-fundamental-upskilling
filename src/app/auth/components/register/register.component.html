@@ -1,5 +1,12 @@
 <div class="row mt-5">
   <div class="col-md-6">
+    <div
+      *ngIf="alert"
+      class="alert alert-{{ alert.status }} alert-dismissible fade show"
+      role="alert">
+      {{ alert.text }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -23,9 +30,5 @@
       <button type="submit" class="btn btn-primary">Register</button>
       <span class="text-secondary m-2">Sudah punya akun?</span> <a routerLink="/auth/login">Login</a>
     </form>
-    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="isRegister">
-      {{ message }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
   </div>
 </div>

@@ -8,10 +8,14 @@ const routes: Routes = [
   // eager load
   {
     path: 'home',
+    canActivate: [RouteGuard],
+    canActivateChild: [RouteGuard],
     component: HomeComponent,
   },
   {
     path: 'tentang',
+    canActivate: [RouteGuard],
+    canActivateChild: [RouteGuard],
     component: AboutComponent
   },
   // lazy load

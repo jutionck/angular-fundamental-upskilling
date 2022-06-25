@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Login, LoginResponse, Register, RegisterResponse } from '../models/auth.model';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../../shared/models/response.model';
+import { CodeServices } from '../../shared/types/enum.types';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,19 @@ export class AuthService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public register(data: Register): Observable<ApiResponse<RegisterResponse>> {
-    return this.http.post<ApiResponse<RegisterResponse>>('/api/v1/auth/register', data)
+  public register(payload: Register): Observable<ApiResponse<RegisterResponse>> {
+    try {
+      return this.http.post<ApiResponse<RegisterResponse>>(CodeServices.AUTH_REGISTER, payload)
+    } catch (err) {
+      throw err
+    }
   }
 
-  public login(data: Login): Observable<ApiResponse<LoginResponse>> {
-    return this.http.post<ApiResponse<LoginResponse>>('/api/v1/auth/login', data)
+  public login(payload: Login): Observable<ApiResponse<LoginResponse>> {
+    try {
+      return this.http.post<ApiResponse<LoginResponse>>(CodeServices.AUTH_LOGIN, payload)
+    } catch (err) {
+      throw err
+    }
   }
 }

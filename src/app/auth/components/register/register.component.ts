@@ -5,6 +5,8 @@ import { ApiResponse } from '../../../shared/models/response.model';
 import { RegisterResponse } from '../../models/auth.model';
 import { Router } from '@angular/router';
 import { log } from 'util';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AlertMessage } from '../../../shared/models/alert-message';
 
 @Component({
   selector: 'app-register',
@@ -12,34 +14,31 @@ import { log } from 'util';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  isRegister: boolean = false
-  message: string = '';
-  constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router
-  ) { }
+  alert: AlertMessage
+  constructor(private readonly authService: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
   registerForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    email: new FormControl('', [ Validators.required, Validators.email ]),
+    password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
   })
 
   onSubmit(): void {
-    if(this.registerForm.valid) {
+    if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value)
         .subscribe((response: ApiResponse<RegisterResponse>) => {
-          this.isAlert()
-          this.router.navigateByUrl('/auth/login').then(r => "")
+          if (response.code === 201) {
+            this.displayAlert(response.message, 'success')
+          }
         }, console.error)
     }
+    this.registerForm.reset()
   }
 
-  isAlert(): void {
-    this.isRegister = !this.isRegister
-    this.message = 'Register berhasil, silahkan login.';
+  private displayAlert(message: string, status: 'info' | 'success' | 'warning' | 'danger'): void {
+    this.alert = {status, text: message};
   }
-
 }
