@@ -4,16 +4,19 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="">Beranda</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home" *ngIf="isLoggedIn()">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/tentang">Tentang</a>
+          <a class="nav-link" routerLink="/tentang" *ngIf="isLoggedIn()">Tentang</a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
+        <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" routerLink="/pages/todos">Todo</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" routerLink="/auth/logout">Logout</a>
         </li>
 
       </ul>

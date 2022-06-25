@@ -1,15 +1,15 @@
 ### REGISTER
-POST https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/auth/register
-Content-Type: application/json
-
-{ "email": "jutionck@gmadil.com", "password": "password" }
-
-### LOGIN
-POST https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/auth/login
+POST https://5af6-118-99-107-91.ap.ngrok.io/api/v1/auth/register
 Content-Type: application/json
 
 { "email": "jutionck@gmail.com", "password": "password" }
 
+### LOGIN
+POST https://5af6-118-99-107-91.ap.ngrok.io/api/v1/auth/login
+Content-Type: application/json
+
+{ "email": "jutionck@gmaidl.com", "password": "password" }
+
 ### TODOS
-GET https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/todos
+GET https://5af6-118-99-107-91.ap.ngrok.io/api/v1/todos
 Accept: application/json

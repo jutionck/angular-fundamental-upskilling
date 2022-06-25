@@ -1,6 +1,6 @@
 {
   "/api/v1": {
-    "target": "https://ebb2-118-99-107-91.ap.ngrok.io/api/v1/",
+    "target": "https://5af6-118-99-107-91.ap.ngrok.io/api/v1/",
     "logLevel": "debug",
     "changeOrigin": true,
     "pathRewrite": {

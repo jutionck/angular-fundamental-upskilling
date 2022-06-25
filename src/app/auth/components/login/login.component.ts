@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiResponse } from '../../../shared/models/response.model';
 import { LoginResponse, RegisterResponse } from '../../models/auth.model';
+import { AlertMessage } from '../../models/alert-message';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,8 @@ import { LoginResponse, RegisterResponse } from '../../models/auth.model';
 })
 export class LoginComponent implements OnInit {
 
-  wrongCredential: boolean = false
-  message: string = '';
+  alert: AlertMessage
+  loading: boolean = false;
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router
@@ -28,19 +30,28 @@ export class LoginComponent implements OnInit {
   })
 
   onSubmit(): void {
+    this.loading = true;
     if(this.loginForm.valid) {
       this.authService.login(this.loginForm.value)
         .subscribe((response: ApiResponse<LoginResponse>) => {
-          this.isAlert()
           sessionStorage.setItem('token', response.data.accessToken)
-          this.router.navigateByUrl('/').then(r => "")
-        }, console.error)
+          this.router.navigateByUrl('/home').then(r => "")
+        },(errorResponse: HttpErrorResponse) => {
+          this.loading = false;
+          if(errorResponse.error) {
+            if(errorResponse.status === 403) {
+              this.displayAlert('Anda tidak punya sesi', 'danger');
+            } else {
+              this.displayAlert('Maaf email dan password salah', 'warning');
+            }
+          }
+        })
     }
   }
 
-  isAlert(): void {
-    this.wrongCredential = !this.wrongCredential
-    this.message = 'Email atau password salah.';
+  private displayAlert(message: string, status: 'info' | 'success' | 'warning' | 'danger'): void {
+    this.alert = { status, text: message };
+    this.loading = false
   }
 
 }

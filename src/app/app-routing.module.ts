@@ -11,11 +11,6 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
     path: 'tentang',
     component: AboutComponent
   },
@@ -31,7 +26,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'backoffice',
+    path: '',
     redirectTo: '/auth/login',
     pathMatch: 'full'
   },
