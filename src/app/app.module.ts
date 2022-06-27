@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DemoComponent } from './demo/demo.component';
 import { ParentComponent } from './demo/parent/parent.component';
 import { ChildComponent } from './demo/child/child.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { RequestInterceptor } from './shared/interceptor/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,14 @@ import { ChildComponent } from './demo/child/child.component';
     SharedModule,
     PagesModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

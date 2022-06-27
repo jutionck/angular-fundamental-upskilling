@@ -16,6 +16,9 @@
           <a class="nav-link" routerLink="/pages/todos">Todo</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" routerLink="/pages/new-todos">New Todo</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" routerLink="/auth/logout">Logout</a>
         </li>
       </ul>

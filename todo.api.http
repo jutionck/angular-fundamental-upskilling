@@ -8,8 +8,9 @@ Content-Type: application/json
 POST https://5af6-118-99-107-91.ap.ngrok.io/api/v1/auth/login
 Content-Type: application/json
 
-{ "email": "jutionck@gmaidl.com", "password": "password" }
+{ "email": "jutionck@gmail.com", "password": "password" }
 
 ### TODOS
 GET https://5af6-118-99-107-91.ap.ngrok.io/api/v1/todos
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqdXRpb25ja0BnbWFpbC5jb20iLCJpYXQiOjE2NTYzMzM4MTQsImV4cCI6MTY1NjMzNTYxNH0.0bq92U6VQgiBttu-dhwtRJUjCNw1Grch2reibiqGJjXIe3yIKPjDB1evNgpRGBQ6O8wNyUlgmYci7iS2r_ZcHw
